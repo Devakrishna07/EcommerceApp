@@ -3,13 +3,12 @@ from decouple import config
 import dj_database_url
 import os
 import dj_database_url
+from decouple import config
 from dotenv import load_dotenv
 
 load_dotenv()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
-ALLOWED_HOSTS = ['*']
 
 
 # Quick-start development settings - unsuitable for production
@@ -19,9 +18,9 @@ ALLOWED_HOSTS = ['*']
 SECRET_KEY = os.getenv('secret_key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('allowed_hosts', default='').split(',')
 
 
 # Application definition
