@@ -22,6 +22,10 @@ DEBUG = True
 
 ALLOWED_HOSTS = config('allowed_hosts', default='').split(',')
 
+# supabase url and secretKey for supabase control
+SUPABASE_URL = os.getenv("supabaseurl")
+SUPABASE_SERVICE_KEY = os.getenv("supabase_key")
+
 
 # Application definition
 
@@ -34,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'Products',
+    'Homepage',
 ]
 
 MIDDLEWARE = [
