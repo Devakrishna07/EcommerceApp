@@ -8,45 +8,11 @@ interface Slide {
   description: string;
 }
 
-const slides: Slide[] = [
-  {
-    id: 1,
-    src: 'https://images.pexels.com/photos/2983464/pexels-photo-2983464.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',
-    alt: 'Casual Cotton Shirt',
-    title: 'Casual Cotton Shirt',
-    description: 'Comfortable everyday wear made with breathable fabric.',
-  },
-  {
-    id: 2,
-    src: 'https://images.pexels.com/photos/6311396/pexels-photo-6311396.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',
-    alt: 'Stylish Winter Jacket',
-    title: 'Stylish Winter Jacket',
-    description: 'Stay warm and fashionable during chilly days.',
-  },
-  {
-    id: 3,
-    src: 'https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',
-    alt: 'Classic Denim Jeans',
-    title: 'Classic Denim Jeans',
-    description: 'Timeless denim jeans that never go out of style.',
-  },
-  {
-    id: 4,
-    src: 'https://images.pexels.com/photos/6311571/pexels-photo-6311571.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',
-    alt: 'Floral Summer Dress',
-    title: 'Floral Summer Dress',
-    description: 'Lightweight and colorful dress perfect for summer.',
-  },
-  {
-    id: 5,
-    src: 'https://images.pexels.com/photos/6311397/pexels-photo-6311397.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750',
-    alt: 'Formal Suit Set',
-    title: 'Formal Suit Set',
-    description: 'Elegant and tailored suit for special occasions.',
-  },
-];
+interface CarouselProps{
+  slides: Slide[];
+}
 
-const Carousel: React.FC = () => {
+const Carousel: React.FC<CarouselProps> = ({slides}) => {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const goToSlide = (index: number) => {
