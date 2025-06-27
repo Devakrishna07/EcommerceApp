@@ -19,7 +19,7 @@ class CarouselAdSerializer(serializers.ModelSerializer):
         file_bytes = image.read()
 
         # ✅ Upload to Supabase Storage (carouselimage bucket)
-        upload_response = supabase.storage.from_('carouselimage').upload(
+        upload_response = supabase.storage.from_('carouselimages').upload(
             storage_path,
             file_bytes,
             {"content-type": image.content_type}
@@ -30,7 +30,7 @@ class CarouselAdSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError("Image upload failed to Supabase")
 
         # ✅ Get public URL
-        public_url = supabase.storage.from_('carouselimage').get_public_url(storage_path)
+        public_url = supabase.storage.from_('carouselimages').get_public_url(storage_path)
 
         # ✅ Create and return CarouselAd with image URL
         return CarouselAd.objects.create(
