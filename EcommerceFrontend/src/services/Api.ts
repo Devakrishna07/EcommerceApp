@@ -1,7 +1,7 @@
 import axios from "axios";
 import type { AxiosRequestConfig, AxiosResponse } from "axios";
 
-const BASE_URL = "https://ecommerceapp-1-yqy3.onrender.com//";
+const BASE_URL = "https://ecommerceapp-1-yqy3.onrender.com/";
 
 const axiosInstance = axios.create({
     baseURL:BASE_URL,
