@@ -1,41 +1,41 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 
 interface Slide {
-  id: number;
-  src: string;
-  alt: string;
-  title: string;
-  description: string;
+  id: number
+  src: string
+  alt: string
+  title: string
+  description: string
 }
 
-interface CarouselProps{
-  slides: Slide[];
+interface CarouselProps {
+  slides: Slide[]
 }
 
-const Carousel: React.FC<CarouselProps> = ({slides}) => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Carousel: React.FC<CarouselProps> = ({ slides }) => {
+  const [currentIndex, setCurrentIndex] = useState(0)
 
   const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
+    setCurrentIndex(index)
+  }
 
   const nextSlide = () => {
-    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-  };
+    setCurrentIndex((prev) => (prev === slides.length - 1 ? 0 : prev + 1))
+  }
 
   const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
-  };
+    setCurrentIndex((prev) => (prev === 0 ? slides.length - 1 : prev - 1))
+  }
 
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, []);
+    const interval = setInterval(nextSlide, 5000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <div className="relative w-[80dvw] md:max-w-6xl mx-auto mt-10">
+    <div className="relative w-full mt-8 overflow-hidden">
       {/* Carousel wrapper */}
-      <div className="relative h-56 md:h-96 overflow-hidden rounded-lg">
+      <div className="relative h-56 sm:h-80 md:h-96 overflow-hidden">
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -49,8 +49,12 @@ const Carousel: React.FC<CarouselProps> = ({slides}) => {
               className="absolute top-1/2 left-1/2 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-black/40 p-4 text-white">
-              <h2 className="hidden md:block text-lg md:text-xl font-semibold">{slide.title}</h2>
-              <p className="hidden md:block text-sm md:text-base">{slide.description}</p>
+              <h2 className="hidden md:block text-lg md:text-xl font-semibold">
+                {slide.title}
+              </h2>
+              <p className="hidden md:block text-sm md:text-base">
+                {slide.description}
+              </p>
             </div>
           </div>
         ))}
@@ -115,7 +119,7 @@ const Carousel: React.FC<CarouselProps> = ({slides}) => {
         </span>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Carousel;
+export default Carousel

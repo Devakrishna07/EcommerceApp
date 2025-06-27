@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import InfoCard from '../components/ProductCard';
 import Carousel from '../components/Carousel';
 import api from '../services/Api';
+import Categories from './Categories';
 
 interface BackendSlide {
   id: number;
@@ -40,17 +40,12 @@ const Home: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen w-screen bg-white flex flex-col items-center justify-start overflow-hidden">
-      <div className="pt-10">
-        {slides.length > 0 ? <Carousel slides={slides} /> : <p>Loading...</p>}
-        
-        <InfoCard 
-          image="https://picsum.photos/200/300"
-          title="Flower"
-          description="This is an image from Lorem Picsum"
-        />
-      </div>
-    </div>
+    <div className="min-h-screen w-full bg-white flex flex-col items-center justify-start overflow-x-hidden">
+  <div className="w-full max-w-screen-xl px-4 pt-10">
+    {slides.length > 0 ? <Carousel slides={slides} /> : <p>Loading...</p>}
+    <Categories />
+  </div>
+</div>
   );
 };
 
