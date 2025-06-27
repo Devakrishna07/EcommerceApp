@@ -1,7 +1,7 @@
-# serializers.py
 from rest_framework import serializers
 from .models import CarouselAd
-from utils.supabase_client import supabase  # ✅ Import supabase here
+from utils.supabase_client import supabase
+from storage3.utils import StorageException
 
 class CarouselAdSerializer(serializers.ModelSerializer):
     image_file = serializers.ImageField(write_only=True)
@@ -16,23 +16,23 @@ class CarouselAdSerializer(serializers.ModelSerializer):
         filename = image.name
         storage_path = f'carousel/{filename}'
 
+        # Read file content as bytes
         file_bytes = image.read()
 
-        # ✅ Upload to Supabase Storage (carouselimage bucket)
-        upload_response = supabase.storage.from_('carouselimages').upload(
-            storage_path,
-            file_bytes,
-            {"content-type": image.content_type}
-        )
+        try:
+            # Upload to Supabase Storage (bucket: 'carouselimages')
+            upload_response = supabase.storage.from_('carouselimages').upload(
+                storage_path,
+                file_bytes,
+                {"content-type": image.content_type}
+            )
+        except StorageException as e:
+            raise serializers.ValidationError(f"Image upload failed: {str(e)}")
 
-        # ✅ Check if upload was successful
-        if upload_response.get("error"):
-            raise serializers.ValidationError("Image upload failed to Supabase")
-
-        # ✅ Get public URL
+        # Get public URL for the uploaded image
         public_url = supabase.storage.from_('carouselimages').get_public_url(storage_path)
 
-        # ✅ Create and return CarouselAd with image URL
+        # Save instance to database with image_url
         return CarouselAd.objects.create(
             image_url=public_url,
             **validated_data
