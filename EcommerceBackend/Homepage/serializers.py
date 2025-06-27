@@ -16,10 +16,12 @@ class CarouselAdSerializer(serializers.ModelSerializer):
         filename = image.name
         storage_path = f'carousel/{filename}'
 
+        file_bytes = image.read()
+
         # ✅ Upload to Supabase Storage (carouselimage bucket)
         upload_response = supabase.storage.from_('carouselimage').upload(
             storage_path,
-            image,
+            file_bytes,
             {"content-type": image.content_type}
         )
 
