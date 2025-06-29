@@ -1,5 +1,9 @@
 import React from 'react'
 import Carousel from '../components/Carousel'
+import NavBar from '../components/NavBar'
+import Tab from 'daisyui/components/tab'
+import FilterTabs from '../components/Tabs'
+import CategoryGrid from '../components/CategoryGrid'
 
 function Home() {
 
@@ -22,10 +26,12 @@ function Home() {
     ]
 
   return (
-    <div className="w-screen min-h-screen text-8xl text-white bg-black flex flex-col items-center justify-start">
+    <div className="w-screen min-h-screen text-8xl text-white bg-white flex flex-col items-center justify-start">
+      <NavBar />
       <Carousel 
         slides={data}
       />
+      <CategoryGrid />
     </div>
   )
 }
