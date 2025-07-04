@@ -10,7 +10,7 @@ function Navbar() {
     {name: "Category"},
   ]
   return (
-    <div className="w-full bg-blue-500 fixed top-0 left-0">
+    <div className="w-full bg-blue-500 fixed top-0 left-0 z-50">
       <div className="navbar bg-blue-500 shadow-sm">
         <div className="navbar-start">
           <img src={logo} alt="logo" className="h-12" />
