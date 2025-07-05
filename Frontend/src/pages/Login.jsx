@@ -27,7 +27,17 @@ function Login() {
                     <img src={logo} alt="logo" className="w-18 my-2 mx-3" />
                     <span className="text-xm font-semibold"></span>
                 </div>
-                <fieldset className="fieldset bg-blue-500 border-base-500 rounded-xl w-xs flex flex-col justify-evenly h-[50%] border p-4 py-6">
+                <div>
+                    <video
+                    src={video}
+                    className="w-full h-screen object-cover md:hidden"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                />
+
+                <fieldset className="fieldset absolute top-50 right-1/8 bg-blue-500 border-base-500 rounded-xl w-xs flex flex-col justify-evenly h-[50%] border p-4 py-6">
                     <legend className="fieldset-legend text-sm text-black hover:text-xl cursor-pointer">Login</legend>
 
                     <div>
@@ -47,6 +57,7 @@ function Login() {
                         <h1 className="hover:text-white cursor-pointer"><a>Forgot password ?</a></h1>
                     </div>
                 </fieldset>
+                </div>
             </div>
 
         </div>
