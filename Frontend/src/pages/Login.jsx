@@ -37,24 +37,24 @@ function Login() {
                     playsInline
                 />
 
-                <fieldset className="fieldset absolute top-50 right-1/8 bg-blue-500 border-base-500 rounded-xl w-xs flex flex-col justify-evenly h-[50%] border p-4 py-6">
-                    <legend className="fieldset-legend text-sm text-black hover:text-xl cursor-pointer">Login</legend>
+                <fieldset className="fieldset absolute top-50 right-1/9 bg-blue-500 border-base-500 rounded-xl w-xs flex flex-col justify-evenly h-[50%] border p-4 py-6">
+                    <legend className="fieldset-legend text-xl text-black hover:text-xl font-bold cursor-pointer">Login</legend>
 
                     <div>
-                        <label className="label text-black font-semibold">Email</label>
+                        <label className="label text-black text-base font-semibold">Email</label>
                     <input type="email" className="input cursor-pointer bg-white text-black rounded-full hover:rounded-xl" placeholder="Email" />
                     </div>
 
                     <div>
-                        <label className="label text-black font-semibold">Password</label>
+                        <label className="label text-black text-base font-semibold">Password</label>
                     <input type="password" className="input cursor-pointer text-black bg-white rounded-full hover:rounded-xl" placeholder="Password" />
                     </div>
 
                     <button className="btn btn-neutral mt-4 rounded-full hover:rounded-xl">Login</button>
 
                     <div className="w-full flex items-center justify-between text-black font-semibold my-3">
-                        <h1 className="hover:text-white cursor-pointer"><a>Create account</a></h1>
-                        <h1 className="hover:text-white cursor-pointer"><a>Forgot password ?</a></h1>
+                        <h1 className="hover:text-white text-base cursor-pointer"><a>Create account</a></h1>
+                        <h1 className="hover:text-white text-base cursor-pointer"><a>Forgot password ?</a></h1>
                     </div>
                 </fieldset>
                 </div>
