@@ -2,9 +2,11 @@ import React from 'react'
 
 function CategoryGrid({ images, categoryName }) {
 
-    const filterdata = images.filter(
+    const Filterdata = images.filter(
         (item) => (item.category?.toLowerCase() || "") === categoryName.toLowerCase()
     );
+
+    const filterdata = Filterdata.slice(0,8);
 
     return (
         <div className="w-full overflow-hidden flex grid grid-cols-2 md:grid-cols-4 gap-2 bg-white items-center justify-center pt-6">

@@ -2,8 +2,10 @@ import React from 'react'
 
 function LineText() {
   return (
-    <div>
-      <div className="w-full h-px bg-blue-500 my-4"></div>
+    <div className="w-screen flex items-center justify-center mt-6">
+      <div className="w-[40%] border-t-5 rounded-full  border-blue-500"></div>
+      <div className="text-xl text-black mx-2">Jeans</div>
+      <div className="w-[40%] border-t-5 rounded-full  border-blue-500"></div>
     </div>
   )
 }
