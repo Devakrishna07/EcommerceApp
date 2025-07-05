@@ -1,6 +1,5 @@
 import React from 'react'
 import logo from '../assets/logo1.png'
-import curs from '../assets/cursor.png'
 
 function Navbar() {
   const navarray = [
@@ -14,7 +13,7 @@ function Navbar() {
       <div className="navbar bg-blue-500 shadow-sm">
         <div className="navbar-start">
           <img src={logo} alt="logo" className="h-12" />
-          <span className="text-xl font-semibold hover:text-black cursor-[url('https://cdn-icons-png.flaticon.com/24/11316/11316997.png'),pointer]">Dev's Stores</span>
+          <span className="text-sm md:text-xl font-semibold hover:text-black cursor-[url('https://cdn-icons-png.flaticon.com/24/11316/11316997.png'),pointer]">Dev's Stores</span>
         </div>
         <div className="navbar-center hidden md:flex">
           <ul className="menu menu-horizontal px-1">
