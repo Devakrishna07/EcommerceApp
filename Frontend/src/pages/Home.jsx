@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
 import CategoryGrid from '../components/CategoryGrid'
 import LineText from '../components/LineText'
+import Footer from '../components/Footer'
 
 
 function Home() {
@@ -26,6 +27,7 @@ function Home() {
           <LineText />
           <CategoryGrid images={images} categoryName={"1"} />
         </div>
+        <Footer />
     </div>
   )
 }
