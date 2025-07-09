@@ -17,7 +17,7 @@ function Login() {
         e.preventDefault();
         try {
             // 1️⃣ get tokens
-            const response = await api.post('/user/token/', {
+            const response = await api.post('user/token/', {
                 username,
                 password,
             });
@@ -26,7 +26,7 @@ function Login() {
             const refresh = response.data.refresh;
 
             // 2️⃣ get user profile data with access token
-            const userRes = await api.get('/user/api/user', {
+            const userRes = await api.get('user/api/user', {
                 headers: {
                     Authorization: `Bearer ${access}`
                 }
